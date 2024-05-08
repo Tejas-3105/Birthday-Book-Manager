@@ -1,4 +1,5 @@
 import os
+import datetime
 
 """
 Tejas Thind - Birthday Book Manager
@@ -34,7 +35,7 @@ def print_help():
     print("2. list") 
     print("3. delete [number]")
     print("4. search [name]")
-    print("5. sort alphabetically")
+    print("5. sort alphabetically (by first name)")
     print("   sort age")
     print("   sort date")
     print("6. save [filename]")
@@ -271,7 +272,31 @@ def search_name(name_to_search, names_list, birthday_list, echo_flag, user_input
         print(f'I\'m sorry, but there are no entries with a name of "{name_to_search}".')
 
 def sort_list(sort_type, names_list, birthday_list, echo_flag, user_input):
+    if echo_flag:
+        print(f'You entered: "{user_input}"')
+
+    if sort_type == 'alphabetically':
+        birthday_list.sort()
+        print('Birthdays succesfully sorted alphabetically. \nType "list" to view the changes.')
+        return birthday_list
+
+    elif sort_type == 'age':
+        # make a lsit of ages that correspond to the birthday list and then run a loop on the ages list
+        # and then sort the birthday list accordingly using:
+        # for i in range(len(ages_list)):
+        #    if ages [i] > ages[i+1]:
+        #       swap(birthday_list[i], birthday_listes[i+1])
+        # then return the sorted birthday list
+        pass
+    elif sort_type == 'date':
+        pass
     return
+
+def calculate_age(birthday):
+    today = datetime.date.today()
+    age = today - birthday
+    return age
+
 # Function to save birthdays to a file.
 def save_to_file(filename, birthday_list, echo_flag, user_input, names_list):
     """
