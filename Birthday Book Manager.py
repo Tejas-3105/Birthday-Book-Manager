@@ -93,6 +93,7 @@ def main():
         elif input_list[0] == 'quit' and len(input_list) == 1:
             if echo_flag:
                 print(f'You entered: "quit"')
+            print('Thank you for using the Birthday Book Manager!')
             break  # Exit loop if 'quit' command is entered
         elif input_list[0] == 'echo':
             echo_flag = echo(input_list[1], echo_flag)  # Call function to toggle echoing
