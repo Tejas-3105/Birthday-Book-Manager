@@ -234,6 +234,7 @@ def delete_entry(user_entry, birthday_list, names_list, echo_flag, user_input):
             # Remove the entry from the birthday list if confirmed
             birthday_list.pop(index - 1)
             names_list.pop(index - 1)
+            print(f'Birtday at position {index} removed.')
             return birthday_list, names_list
         user_answer = input('Please enter "y" or "n" (y/n) ')
         
