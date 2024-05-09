@@ -79,7 +79,7 @@ def main():
             search_name(input_list[1], names_list, birthday_list, echo_flag, user_input)
         elif input_list[0] == 'sort' and len(input_list) == 2:
             # Call function to sort the list of birthdays
-            sort_list(input_list[1], names_list, birthday_list, echo_flag, user_input)
+            sort_list(input_list[1], birthday_list, echo_flag, user_input)
         elif input_list[0] == 'save':
             # Call function to save data to a file
             saved_files.append(save_to_file(input_list[1], birthday_list, echo_flag, user_input, names_list))
@@ -272,7 +272,7 @@ def search_name(name_to_search, names_list, birthday_list, echo_flag, user_input
     if not matches:
         print(f'I\'m sorry, but there are no entries with a name of "{name_to_search}".')
 
-def sort_list(sort_type, names_list, birthday_list, echo_flag, user_input):
+def sort_list(sort_type, birthday_list, echo_flag, user_input):
 
     if echo_flag:
         print(f'You entered: "{user_input}"')
