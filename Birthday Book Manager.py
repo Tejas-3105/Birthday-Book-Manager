@@ -49,8 +49,10 @@ def main():
     """The main function of the Birthday Book program."""
 
     # Print a welcome message
-    print("Welcome to the Birthday Book Manager")
-    print('Enter "help" to see a list of commands, and how to sign in.')
+    print()
+    print("\033[1m\033[4mWelcome to the Birthday Book Manager\033[0m")
+    print()
+    print('Enter "help" to see a list of commands.')
     
     # Initialize lists and variables
     birthday_list = []  # List to store birthdays
