@@ -319,7 +319,6 @@ def sort_list(sort_type, birthday_list, echo_flag, user_input):
         print('Birthdays successfully sorted by age (ascending). \nType "list" to view the changes.')
         return birthday_list
 
-
 # Calculates the age based on the given birthday.
 def calculate_age(birthday):
     """
