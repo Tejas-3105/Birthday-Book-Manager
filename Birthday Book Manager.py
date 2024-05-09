@@ -272,6 +272,7 @@ def search_name(name_to_search, names_list, birthday_list, echo_flag, user_input
         print(f'I\'m sorry, but there are no entries with a name of "{name_to_search}".')
 
 def sort_list(sort_type, names_list, birthday_list, echo_flag, user_input):
+    
     if echo_flag:
         print(f'You entered: "{user_input}"')
 
@@ -295,10 +296,6 @@ def sort_list(sort_type, names_list, birthday_list, echo_flag, user_input):
                 birthday_list[j] = birthday_list[j+1]
                 birthday_list[j+1] = temp
         return birthday_list
-    
-    elif sort_type == 'date':
-        pass
-    return
 
 def calculate_age(birthday):
     today = datetime.date.today()
