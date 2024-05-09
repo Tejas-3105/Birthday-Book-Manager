@@ -284,29 +284,38 @@ def sort_list(sort_type, birthday_list, echo_flag, user_input):
     list: The sorted birthday list.
 
     """
+    # If echoing is enabled, print the user's input.
     if echo_flag:
         print(f'You entered: "{user_input}"')
 
+    # If sorting alphabetically:
     if sort_type == 'alphabetically':
+        # Sort the birthday list alphabetically.
         birthday_list.sort()
         print('Birthdays successfully sorted alphabetically. \nType "list" to view the changes.')
         return birthday_list
 
+    # If sorting by age:
     elif sort_type == 'age':
         age_list = []
         for i in range(len(birthday_list)):
+            # Split the birthday string into its components and convert to a date object.
             birthday = birthday_list[i].split()
             birthday = birthday[2].split('/')
             birthday_1 = datetime.date(int(birthday[2]), int(birthday[0]), int(birthday[1]))
+            # Calculate the age and append it to the age list.
             age = calculate_age(birthday_1)
             age_list.append(age)
+        # Iterate through the age list for sorting.
         for j in range(0, len(age_list) - 1):
+            # If the age at index j is greater than the age at index j+1, swap the birthdays.
             if age_list[j] > age_list[j + 1]:
                 temp = birthday_list[j]
                 birthday_list[j] = birthday_list[j + 1]
                 birthday_list[j + 1] = temp
         print('Birthdays successfully sorted by age (ascending). \nType "list" to view the changes.')
         return birthday_list
+
 
 # Calculates the age based on the given birthday.
 def calculate_age(birthday):
