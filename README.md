@@ -1,5 +1,5 @@
 # Birthday-Book-Manager-Updated
-The Birthday Book Manager is a command-line program designed to assist users in managing birthday information efficiently.  It offers various commands for adding, listing, deleting, sorting, searching, saving, and loading birthday entries.   
+The Birthday Book Manager is a command-line program designed to assist users in managing birthday information efficiently.  It offers various commands for adding, listing, deleting, sorting, searching, saving, and loading birthday entries. It has been put together with robust error handling to properly manage unexpected inputs or errors, providing clear and informative error messages to users.
 
 For instance:   
 Adding an entry displays a confirmation message.   
