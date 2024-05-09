@@ -272,7 +272,7 @@ def search_name(name_to_search, names_list, birthday_list, echo_flag, user_input
         print(f'I\'m sorry, but there are no entries with a name of "{name_to_search}".')
 
 def sort_list(sort_type, names_list, birthday_list, echo_flag, user_input):
-    
+
     if echo_flag:
         print(f'You entered: "{user_input}"')
 
@@ -286,15 +286,15 @@ def sort_list(sort_type, names_list, birthday_list, echo_flag, user_input):
         for i in range(len(birthday_list)):
             birthday = birthday_list[i].split()
             birthday = birthday[2].split('/')
-            birthday = datetime.date(int(birthday[2]), int(birthday[0]), int(birthday[1]))
-            age = calculate_age(birthday)
+            birthday_1 = datetime.date(int(birthday[2]), int(birthday[0]), int(birthday[1]))
+            age = calculate_age(birthday_1)
             age_list.append(age)
-            print(age_list)
-        for j in range(len(age_list)):
-            if age_list[j+1] != None and age_list[j] > age_list[j+1]:
+        for j in range(0, len(age_list) - 1):
+            if age_list[j] > age_list[j + 1]:
                 temp = birthday_list[j]
-                birthday_list[j] = birthday_list[j+1]
-                birthday_list[j+1] = temp
+                birthday_list[j] = birthday_list[j + 1]
+                birthday_list[j + 1] = temp
+        print('Birthdays succesfully sorted by age (ascending). \nType "list" to view the changes.')
         return birthday_list
 
 def calculate_age(birthday):
