@@ -37,7 +37,6 @@ def print_help():
     print("4. search [name]")
     print("5. sort alphabetically (by first name)")
     print("   sort age")
-    print("   sort date")
     print("6. save [filename]")
     print("7. load [filename]")
     print("8. help")
@@ -272,14 +271,25 @@ def search_name(name_to_search, names_list, birthday_list, echo_flag, user_input
     if not matches:
         print(f'I\'m sorry, but there are no entries with a name of "{name_to_search}".')
 
+# Sorts the birthday list based on the given sort type.
 def sort_list(sort_type, birthday_list, echo_flag, user_input):
+    """
+    Parameters:
+    sort_type (str): The type of sorting to be performed. Can be 'alphabetically' or 'age'.
+    birthday_list (list): The list of birthdays to be sorted.
+    echo_flag (bool): Flag to determine whether to print the user input.
+    user_input (str): The user input to be printed if echo_flag is True.
 
+    Returns:
+    list: The sorted birthday list.
+
+    """
     if echo_flag:
         print(f'You entered: "{user_input}"')
 
     if sort_type == 'alphabetically':
         birthday_list.sort()
-        print('Birthdays succesfully sorted alphabetically. \nType "list" to view the changes.')
+        print('Birthdays successfully sorted alphabetically. \nType "list" to view the changes.')
         return birthday_list
 
     elif sort_type == 'age':
@@ -295,10 +305,18 @@ def sort_list(sort_type, birthday_list, echo_flag, user_input):
                 temp = birthday_list[j]
                 birthday_list[j] = birthday_list[j + 1]
                 birthday_list[j + 1] = temp
-        print('Birthdays succesfully sorted by age (ascending). \nType "list" to view the changes.')
+        print('Birthdays successfully sorted by age (ascending). \nType "list" to view the changes.')
         return birthday_list
 
+# Calculates the age based on the given birthday.
 def calculate_age(birthday):
+    """
+    Parameters:
+    birthday (datetime.date): The date of birth.
+
+    Returns:
+    int: The calculated age.
+    """
     today = datetime.date.today()
     age = today.year - birthday.year - ((today.month, today.day) < (birthday.month, birthday.day))
     return age
