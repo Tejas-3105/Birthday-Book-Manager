@@ -80,7 +80,7 @@ def main():
             search_name(input_list[1], names_list, birthday_list, echo_flag, user_input)
         elif input_list[0] == 'sort' and len(input_list) == 2:
             # Call function to sort the list of birthdays
-            sort_list(input_list[1], birthday_list, echo_flag, user_input)
+            sort_list(input_list[1], names_list, birthday_list, echo_flag, user_input)
         elif input_list[0] == 'save':
             # Call function to save data to a file
             saved_files.append(save_to_file(input_list[1], birthday_list, echo_flag, user_input, names_list))
@@ -275,7 +275,7 @@ def search_name(name_to_search, names_list, birthday_list, echo_flag, user_input
         print(f'I\'m sorry, but there are no entries with a name of "{name_to_search}".')
 
 # Sorts the birthday list based on the given sort type.
-def sort_list(sort_type, birthday_list, echo_flag, user_input):
+def sort_list(sort_type, names_list, birthday_list, echo_flag, user_input):
     """
     Parameters:
     sort_type (str): The type of sorting to be performed. Can be 'alphabetically' or 'age'.
@@ -295,8 +295,9 @@ def sort_list(sort_type, birthday_list, echo_flag, user_input):
     if sort_type == 'alphabetically':
         # Sort the birthday list alphabetically.
         birthday_list.sort()
+        names_list.sort()
         print('Birthdays successfully sorted alphabetically. \nType "list" to view the changes.')
-        return birthday_list
+        return birthday_list, names_list
 
     # If sorting by age:
     elif sort_type == 'age':
@@ -314,10 +315,13 @@ def sort_list(sort_type, birthday_list, echo_flag, user_input):
             # If the age at index j is greater than the age at index j+1, swap the birthdays.
             if age_list[j] > age_list[j + 1]:
                 temp = birthday_list[j]
+                temp_2 = names_list[j]
                 birthday_list[j] = birthday_list[j + 1]
+                names_list[j] = names_list[j + 1]
                 birthday_list[j + 1] = temp
+                names_list[j + 1] = temp_2
         print('Birthdays successfully sorted by age (ascending). \nType "list" to view the changes.')
-        return birthday_list
+        return birthday_list, names_list
 
 # Calculates the age based on the given birthday.
 def calculate_age(birthday):
@@ -354,6 +358,7 @@ def save_to_file(filename, birthday_list, echo_flag, user_input, names_list):
         for i in range(len(birthday_list)):
             file.write(f'{birthday_list[i]}\n')
             file.write(f'{names_list[i]}\n')
+            file.write('\n')
         print(f'Saved birthdays to "{filename}".')
         return filename
     
